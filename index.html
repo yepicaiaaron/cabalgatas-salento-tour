@@ -3,477 +3,476 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cabalgatas Salento - Horseback Riding Tours</title>
-    <meta name="description" content="Professional horseback riding tours in Salento, Quindío. Experience the Cocora Valley and coffee cultural landscape on horseback.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Cabalgatas San Pablo | Horseback Riding Salento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --color-primary: #2C5F2D; /* Deep Forest Green */
-            --color-secondary: #97BC62; /* Fresh Leaf Green */
-            --color-accent: #D4A017; /* Gold/Ochre */
-            --color-text: #333333;
-            --color-bg-light: #F9F9F9;
-            --color-white: #FFFFFF;
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 4rem;
-            --radius: 8px;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: 'Lato', sans-serif;
-            color: var(--color-text);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            background-color: var(--color-bg-light);
+            color: #333;
         }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--color-primary);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            border-radius: var(--radius);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-sm);
-        }
-
-        /* Header & Nav */
-        header {
-            background: var(--color-white);
-            box-shadow: var(--shadow);
-            position: sticky;
+        
+        /* Language Bar */
+        .lang-bar {
+            background: #1a3c34;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
-            padding: 1rem 0;
         }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-primary);
-            text-decoration: none;
-        }
-
-        .lang-switch button {
-            background: none;
-            border: 1px solid var(--color-primary);
-            color: var(--color-primary);
-            padding: 0.25rem 0.5rem;
+        
+        .lang-bar button {
+            background: transparent;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            padding: 8px 20px;
+            margin: 0 5px;
+            border-radius: 20px;
             cursor: pointer;
-            font-family: 'Lato', sans-serif;
-            transition: all 0.3s ease;
-            margin-left: 0.5rem;
+            font-weight: 600;
         }
-
-        .lang-switch button.active {
-            background: var(--color-primary);
-            color: var(--color-white);
+        
+        .lang-bar button.active {
+            background: #d4af37;
+            color: #1a3c34;
         }
-
-        /* Hero Section */
+        
+        /* Hero */
         .hero {
             position: relative;
-            height: 70vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: var(--color-white);
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/photo_001.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero h1 {
-            color: var(--color-white);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--color-accent);
-            color: var(--color-white);
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            border-radius: var(--radius);
-            font-weight: 700;
-            transition: transform 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            background: #b88a10;
-        }
-
-        /* Tours Section */
-        .section {
-            padding: var(--spacing-lg) 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: var(--spacing-md);
-            font-size: 2rem;
-        }
-
-        .tours-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .tour-card {
-            background: var(--color-white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            margin-top: 50px;
         }
-
-        .tour-image {
-            height: 200px;
-            object-fit: cover;
-            width: 100%;
-        }
-
-        .tour-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .tour-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .tour-desc {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
-
-        .tour-details {
-            font-size: 0.9rem;
-            color: var(--color-primary);
-            font-weight: 700;
-            border-top: 1px solid #eee;
-            padding-top: 1rem;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        /* Gallery Section */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .gallery-item {
-            height: 250px;
-            overflow: hidden;
-            border-radius: var(--radius);
-        }
-
-        .gallery-item img {
+        
+        .hero img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            z-index: -2;
         }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: -1;
         }
-
-        /* Contact Section */
-        .contact-container {
-            background: var(--color-white);
-            padding: var(--spacing-md);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+        
+        .hero-content {
             text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 800px;
         }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
         }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #d4af37;
+            color: #1a3c34;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
             font-size: 1.1rem;
         }
-
+        
+        /* Sections */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #1a3c34;
+        }
+        
+        /* Features */
+        .features {
+            background: #f5f5f5;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            color: #1a3c34;
+            margin-bottom: 10px;
+        }
+        
+        /* Tours */
+        .tour-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .tour-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 300px;
+        }
+        
+        .tour-info {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .tour-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #1a3c34;
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            color: #d4af37;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .duration {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        /* Gallery */
+        .gallery {
+            background: #f5f5f5;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .contact-item {
+            padding: 20px;
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
         /* Footer */
         footer {
-            background: var(--color-primary);
-            color: var(--color-white);
+            background: #1a3c34;
+            color: white;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: var(--spacing-lg);
+            padding: 40px 20px;
         }
-
-        /* Utilities */
-        [lang] { display: none; }
-        body[data-lang="es"] [lang="es"] { display: block; }
-        body[data-lang="es"] [lang="en"] { display: none; }
-        body[data-lang="en"] [lang="en"] { display: block; }
-        body[data-lang="en"] [lang="es"] { display: none; }
-        /* Fix for inline elements */
-        span[lang], strong[lang] { display: inline !important; }
-        body[data-lang="es"] span[lang="en"], body[data-lang="es"] strong[lang="en"] { display: none !important; }
-        body[data-lang="en"] span[lang="es"], body[data-lang="en"] strong[lang="es"] { display: none !important; }
         
-        /* Flex fix for tours to handle the language toggle within cards */
-        .tour-content [lang] { display: none; }
-        body[data-lang="es"] .tour-content [lang="es"] { display: block; }
-        body[data-lang="en"] .tour-content [lang="en"] { display: block; }
-
-
-        @media (min-width: 768px) {
-            .hero h1 { font-size: 3.5rem; }
-            .section-title { font-size: 2.5rem; }
+        /* Language content */
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .tour-card { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body data-lang="es">
-
-    <!-- Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Cabalgatas Salento</a>
-                <div class="lang-switch">
-                    <button onclick="setLang('es')" id="btn-es" class="active">ES</button>
-                    <button onclick="setLang('en')" id="btn-en">EN</button>
-                </div>
-            </nav>
-        </div>
-    </header>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-bar">
+        <button class="active" onclick="setLang('es')">Español</button>
+        <button onclick="setLang('en')">English</button>
+    </div>
 
     <!-- Hero -->
     <section class="hero">
-        <div class="container">
-            <h1 lang="es">Descubre el Paisaje Cafetero</h1>
-            <h1 lang="en">Discover the Coffee Landscape</h1>
-            
-            <p lang="es">Experiencias inolvidables a caballo en el corazón de Colombia.</p>
-            <p lang="en">Unforgettable horseback riding experiences in the heart of Colombia.</p>
-            
-            <a href="#contact" class="btn">
-                <span lang="es">Reserva Tu Aventura</span>
-                <span lang="en">Book Your Adventure</span>
-            </a>
+        <img src="images/photo_002.jpg" alt="Cabalgatas San Pablo">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="lang-content es active">
+                <h1>Cabalgatas San Pablo</h1>
+                <p>Descubre la magia del Valle del Cocora a caballo. Una experiencia única en el corazón del Eje Cafetero.</p>
+                <a href="#tours" class="btn">Ver Tours</a>
+            </div>
+            <div class="lang-content en">
+                <h1>Cabalgatas San Pablo</h1>
+                <p>Discover the magic of Cocora Valley on horseback. A unique experience in the heart of Colombia's Coffee Region.</p>
+                <a href="#tours" class="btn">See Tours</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="lang-content es active"><h2>¿Por qué elegirnos?</h2></div>
+        <div class="lang-content en"><h2>Why Choose Us?</h2></div>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🗣️</div>
+                <div class="lang-content es active">
+                    <h3>Guías Bilingües</h3>
+                    <p>Uno de los pocos tours en Salento con guías en inglés y español.</p>
+                </div>
+                <div class="lang-content en">
+                    <h3>Bilingual Guides</h3>
+                    <p>One of the few tours in Salento with English and Spanish speaking guides.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🐴</div>
+                <div class="lang-content es active">
+                    <h3>Caballos Cuidados</h3>
+                    <p>Nuestros caballos son familia. Reciben amor y cuidado veterinario.</p>
+                </div>
+                <div class="lang-content en">
+                    <h3>Well-Cared Horses</h3>
+                    <p>Our horses are family. They receive love and veterinary care.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <div class="lang-content es active">
+                    <h3>Seguro Incluido</h3>
+                    <p>Todos los tours incluyen seguro de accidentes.</p>
+                </div>
+                <div class="lang-content en">
+                    <h3>Insurance Included</h3>
+                    <p>All tours include accident insurance.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">☕</div>
+                <div class="lang-content es active">
+                    <h3>Tour de Café</h3>
+                    <p>Visita una finca cafetera y aprende el proceso del café.</p>
+                </div>
+                <div class="lang-content en">
+                    <h3>Coffee Tour</h3>
+                    <p>Visit a coffee farm and learn about coffee production.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Tours -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">
-                <span lang="es">Nuestros Recorridos</span>
-                <span lang="en">Our Tours</span>
-            </h2>
-            <div class="tours-grid">
-                <!-- Tour 1 -->
-                <article class="tour-card">
-                    <img src="images/photo_002.jpg" alt="Valle de Cocora" class="tour-image" onerror="this.src='https://via.placeholder.com/400x300?text=Tour+Image'">
-                    <div class="tour-content">
-                        <h3 class="tour-title">
-                            <span lang="es">Ruta Valle de Cocora</span>
-                            <span lang="en">Cocora Valley Route</span>
-                        </h3>
-                        <div class="tour-desc">
-                            <p lang="es">El recorrido más emblemático. Cabalga entre las palmas de cera más altas del mundo y disfruta de vistas panorámicas inigualables.</p>
-                            <p lang="en">The most iconic tour. Ride among the tallest wax palms in the world and enjoy unmatched panoramic views.</p>
-                        </div>
-                        <div class="tour-details">
-                            <span>3 - 4 <span lang="es">Horas</span><span lang="en">Hours</span></span>
-                            <span>$$$</span>
-                        </div>
-                    </div>
-                </article>
+    <section id="tours">
+        <div class="lang-content es active"><h2>Nuestros Tours</h2></div>
+        <div class="lang-content en"><h2>Our Tours</h2></div>
 
-                <!-- Tour 2 -->
-                <article class="tour-card">
-                    <img src="images/photo_003.jpg" alt="Cascada Santa Rita" class="tour-image" onerror="this.src='https://via.placeholder.com/400x300?text=Tour+Image'">
-                    <div class="tour-content">
-                        <h3 class="tour-title">
-                            <span lang="es">Cascada Santa Rita</span>
-                            <span lang="en">Santa Rita Waterfall</span>
-                        </h3>
-                        <div class="tour-desc">
-                            <p lang="es">Una aventura a través de bosques nativos y antiguos túneles ferroviarios hasta llegar a una hermosa cascada natural.</p>
-                            <p lang="en">An adventure through native forests and old railway tunnels arriving at a beautiful natural waterfall.</p>
-                        </div>
-                        <div class="tour-details">
-                            <span>2 - 3 <span lang="es">Horas</span><span lang="en">Hours</span></span>
-                            <span>$$</span>
-                        </div>
-                    </div>
-                </article>
+        <!-- Tour 1 -->
+        <div class="tour-card">
+            <img src="images/photo_001.jpg" alt="Río Boquerón">
+            <div class="tour-info">
+                <div class="lang-content es active">
+                    <h3>Río Boquerón</h3>
+                    <div class="price">$100.000 COP</div>
+                    <div class="duration">⏱️ ~2 horas | 🐴 Todos los niveles</div>
+                    <p>Perfecto para iniciarse. Cruzarás el río Boquerón mientras disfrutas de paisajes verdes.</p>
+                </div>
+                <div class="lang-content en">
+                    <h3>Boquerón River</h3>
+                    <div class="price">$100.000 COP</div>
+                    <div class="duration">⏱️ ~2 hours | 🐴 All levels</div>
+                    <p>Perfect for beginners. Cross the Boquerón River while enjoying green landscapes.</p>
+                </div>
+            </div>
+        </div>
 
-                <!-- Tour 3 -->
-                <article class="tour-card">
-                    <img src="images/photo_004.jpg" alt="Río Quindío" class="tour-image" onerror="this.src='https://via.placeholder.com/400x300?text=Tour+Image'">
-                    <div class="tour-content">
-                        <h3 class="tour-title">
-                            <span lang="es">Paseo Río Quindío</span>
-                            <span lang="en">Quindío River Ride</span>
-                        </h3>
-                        <div class="tour-desc">
-                            <p lang="es">Un paseo relajante cruzando el río varias veces. Perfecto para principiantes y familias que buscan tranquilidad.</p>
-                            <p lang="en">A relaxing ride crossing the river multiple times. Perfect for beginners and families seeking tranquility.</p>
-                        </div>
-                        <div class="tour-details">
-                            <span>2 <span lang="es">Horas</span><span lang="en">Hours</span></span>
-                            <span>$</span>
-                        </div>
-                    </div>
-                </article>
+        <!-- Tour 2 -->
+        <div class="tour-card">
+            <img src="images/photo_003.jpg" alt="Río Navarco">
+            <div class="tour-info">
+                <div class="lang-content es active">
+                    <h3>Río Navarco - Boquerón</h3>
+                    <div class="price">$140.000 COP</div>
+                    <div class="duration">⏱️ ~3 horas | 🐴 Todos los niveles</div>
+                    <p>Recorrido extendido por dos ríos cristalinos. Ideal para una aventura más larga.</p>
+                </div>
+                <div class="lang-content en">
+                    <h3>Navarco - Boquerón Rivers</h3>
+                    <div class="price">$140.000 COP</div>
+                    <div class="duration">⏱️ ~3 hours | 🐴 All levels</div>
+                    <p>Extended tour through two crystal-clear rivers. Ideal for a longer adventure.</p>
+                </div>
+            </div>
+        </div>
 
-                <!-- Tour 4 -->
-                <article class="tour-card">
-                    <img src="images/photo_005.jpg" alt="Miradores Cafeteros" class="tour-image" onerror="this.src='https://via.placeholder.com/400x300?text=Tour+Image'">
-                    <div class="tour-content">
-                        <h3 class="tour-title">
-                            <span lang="es">Miradores Cafeteros</span>
-                            <span lang="en">Coffee Viewpoints</span>
-                        </h3>
-                        <div class="tour-desc">
-                            <p lang="es">Asciende por senderos de montaña para ver el atardecer sobre las plantaciones de café. Ideal para fotografía.</p>
-                            <p lang="en">Ascend mountain trails to watch the sunset over coffee plantations. Ideal for photography.</p>
-                        </div>
-                        <div class="tour-details">
-                            <span>2.5 <span lang="es">Horas</span><span lang="en">Hours</span></span>
-                            <span>$$</span>
-                        </div>
-                    </div>
-                </article>
+        <!-- Tour 3 -->
+        <div class="tour-card">
+            <img src="images/photo_004.jpg" alt="Finca Cafetera">
+            <div class="tour-info">
+                <div class="lang-content es active">
+                    <h3>Finca Cafetera + Río</h3>
+                    <div class="price">$180.000 COP</div>
+                    <div class="duration">⏱️ ~3.5 horas | ☕ Incluye tour de café</div>
+                    <p>La experiencia completa: cabalgata + visita a la finca cafetera Las Acacias. ¡Entrada incluida!</p>
+                </div>
+                <div class="lang-content en">
+                    <h3>Coffee Farm + River</h3>
+                    <div class="price">$180.000 COP</div>
+                    <div class="duration">⏱️ ~3.5 hours | ☕ Coffee tour included</div>
+                    <p>The complete experience: horseback ride + visit to Las Acacias coffee farm. Entry included!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tour 4 -->
+        <div class="tour-card">
+            <img src="images/photo_005.jpg" alt="Tour Completo">
+            <div class="tour-info">
+                <div class="lang-content es active">
+                    <h3>Tour Completo Premium</h3>
+                    <div class="price">$240.000 COP</div>
+                    <div class="duration">⏱️ ~5 horas | 🏆 Experiencia premium</div>
+                    <p>Nuestra experiencia más completa. Múltiples ríos y finca cafetera para verdaderos amantes de la naturaleza.</p>
+                </div>
+                <div class="lang-content en">
+                    <h3>Premium Full Tour</h3>
+                    <div class="price">$240.000 COP</div>
+                    <div class="duration">⏱️ ~5 hours | 🏆 Premium experience</div>
+                    <p>Our most complete experience. Multiple rivers and coffee farm for true nature lovers.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Gallery -->
-    <section class="section" style="background-color: #f0f4e8;">
-        <div class="container">
-            <h2 class="section-title">
-                <span lang="es">Galería</span>
-                <span lang="en">Gallery</span>
-            </h2>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="images/photo_001.jpg" alt="Horse riding" loading="lazy"></div>
-                <div class="gallery-item"><img src="images/photo_002.jpg" alt="Cocora Valley" loading="lazy"></div>
-                <div class="gallery-item"><img src="images/photo_003.jpg" alt="Salento nature" loading="lazy"></div>
-                <div class="gallery-item"><img src="images/photo_004.jpg" alt="Horses" loading="lazy"></div>
-                <div class="gallery-item"><img src="images/photo_005.jpg" alt="Landscape" loading="lazy"></div>
-                <div class="gallery-item"><img src="images/photo_006.jpg" alt="Riding trail" loading="lazy"></div>
-            </div>
+    <section class="gallery">
+        <div class="lang-content es active"><h2>Galería</h2></div>
+        <div class="lang-content en"><h2>Gallery</h2></div>
+        
+        <div class="gallery-grid">
+            <img src="images/photo_001.jpg" alt="Cabalgata">
+            <img src="images/photo_002.jpg" alt="Valle del Cocora">
+            <img src="images/photo_003.jpg" alt="Salento">
+            <img src="images/photo_004.jpg" alt="Cabalgatas">
+            <img src="images/photo_005.jpg" alt="Paisaje">
+            <img src="images/photo_006.jpg" alt="Aventura">
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="contact-container">
-                <h2 class="section-title">
-                    <span lang="es">Contáctanos</span>
-                    <span lang="en">Contact Us</span>
-                </h2>
-                <p lang="es">¿Listo para montar? Escríbenos por WhatsApp o llámanos para reservar tu caballo.</p>
-                <p lang="en">Ready to ride? Message us on WhatsApp or call to reserve your horse.</p>
-                
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <strong>WhatsApp:</strong> +57 300 123 4567
-                    </div>
-                    <div class="contact-item">
-                        <strong>Email:</strong> info@cabalgatassalento.com
-                    </div>
-                    <div class="contact-item">
-                        <strong><span lang="es">Ubicación</span><span lang="en">Location</span>:</strong> Salento, Quindío
-                    </div>
-                </div>
-                
-                <div style="margin-top: 2rem;">
-                    <a href="#" class="btn" style="background-color: #25D366;">
-                        <span lang="es">Chatear en WhatsApp</span>
-                        <span lang="en">Chat on WhatsApp</span>
-                    </a>
-                </div>
+    <section>
+        <div class="lang-content es active"><h2>Contacto</h2></div>
+        <div class="lang-content en"><h2>Contact</h2></div>
+        
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div class="lang-content es active"><strong>Ubicación</strong><br>Cra. 6 #7-65<br>Salento, Quindío</div>
+                <div class="lang-content en"><strong>Location</strong><br>Cra. 6 #7-65<br>Salento, Quindío</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📱</div>
+                <strong>WhatsApp</strong><br>+57 312 345 6789
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <strong>Email</strong><br>info@sanpablo.com
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">⏰</div>
+                <div class="lang-content es active"><strong>Horario</strong><br>8:00 AM - 5:00 PM</div>
+                <div class="lang-content en"><strong>Hours</strong><br>8:00 AM - 5:00 PM</div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Cabalgatas Salento. <span lang="es">Todos los derechos reservados.</span><span lang="en">All rights reserved.</span></p>
+        <div class="lang-content es active">
+            <p>🐴 Cabalgatas San Pablo - Una de las pocas operadoras en Salento con guías en inglés</p>
+            <p>© 2026 Salento, Quindío, Colombia</p>
+        </div>
+        <div class="lang-content en">
+            <p>🐴 Cabalgatas San Pablo - One of the few operators in Salento with English-speaking guides</p>
+            <p>© 2026 Salento, Quindío, Colombia</p>
         </div>
     </footer>
 
     <script>
         function setLang(lang) {
-            document.body.setAttribute('data-lang', lang);
-            document.documentElement.lang = lang;
-            
-            // Update buttons
-            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-            
-            // Persist preference (optional, but good UX)
-            localStorage.setItem('preferred-lang', lang);
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.lang-content.' + lang).forEach(el => {
+                el.classList.add('active');
+            });
+            document.querySelectorAll('.lang-bar button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
         }
-
-        // Initialize language
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferred-lang') || 'es';
-            setLang(savedLang);
-        });
     </script>
 </body>
 </html>

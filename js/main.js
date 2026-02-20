@@ -1,14 +1,12 @@
 /**
- * Cabalgatas Salento Tour - Interactive Website
- * Galloping Horse Parallax & Premium Animations
+ * Cabalgatas Salento Tour - Opening Sequence & Parallax Experience
+ * Large galloping horse intro + right-to-left scroll animation
  */
 
-// Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all components
+    initOpeningSequence();
     initNavigation();
     initHorseAnimation();
-    initParallax();
     initScrollProgress();
     initGallery();
     initSmoothScroll();
@@ -18,35 +16,91 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Navigation - Show/hide on scroll and mobile toggle
+ * OPENING SEQUENCE
+ * Large horse gallops from right to left, reveals branding
+ */
+function initOpeningSequence() {
+    const opening = document.getElementById('opening');
+    const openingHorse = document.getElementById('openingHorse');
+    const mainContent = document.getElementById('mainContent');
+    const nav = document.getElementById('nav');
+    
+    if (!opening || !openingHorse) return;
+
+    let hasRevealed = false;
+    let horsePosition = -500; // Start off-screen right
+    const targetPosition = window.innerWidth + 500; // End off-screen left
+    
+    // Initial animation - horse enters and gallops
+    function animateOpeningHorse() {
+        // Move horse from right to left
+        horsePosition += 8; // Speed of gallop
+        
+        if (horsePosition < targetPosition) {
+            openingHorse.style.transform = `translateY(-50%) translateX(-${horsePosition}px)`;
+            requestAnimationFrame(animateOpeningHorse);
+        }
+    }
+    
+    // Start opening animation
+    setTimeout(() => {
+        opening.classList.add('revealed');
+        animateOpeningHorse();
+    }, 300);
+
+    // Scroll handler - reveals main content
+    function handleScroll() {
+        if (hasRevealed) return;
+        
+        const scrollY = window.scrollY;
+        const threshold = window.innerHeight * 0.3;
+        
+        if (scrollY > threshold) {
+            hasRevealed = true;
+            
+            // Fade out opening sequence
+            opening.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            opening.style.opacity = '0';
+            opening.style.transform = 'translateY(-50px)';
+            opening.style.pointerEvents = 'none';
+            
+            // Show navigation
+            setTimeout(() => {
+                nav.classList.add('visible');
+            }, 400);
+            
+            // Remove opening from DOM after animation
+            setTimeout(() => {
+                opening.style.display = 'none';
+            }, 1000);
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+}
+
+/**
+ * Navigation
  */
 function initNavigation() {
     const nav = document.getElementById('nav');
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.querySelector('.nav-links');
-    let lastScroll = 0;
 
-    // Scroll behavior for nav
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
+        if (window.scrollY > 100) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
         }
-        
-        lastScroll = currentScroll;
     }, { passive: true });
 
-    // Mobile toggle
     if (navToggle) {
         navToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
     }
 
-    // Close mobile menu on link click
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
@@ -55,9 +109,7 @@ function initNavigation() {
 }
 
 /**
- * Galloping Horse Animation
- * The horse gallops across the screen as you scroll
- * Speed is synced to scroll velocity
+ * HORSE ANIMATION - RIGHT to LEFT across website
  */
 function initHorseAnimation() {
     const horse = document.getElementById('horse');
@@ -66,12 +118,8 @@ function initHorseAnimation() {
     
     if (!horse || !horseContainer) return;
 
-    let scrollProgress = 0;
     let lastScrollY = window.scrollY;
-    let scrollVelocity = 0;
-    let animationSpeed = 0.6; // Base animation duration in seconds
     let isActive = true;
-    let rafId = null;
 
     // Create dust particles
     function createDust() {
@@ -79,7 +127,7 @@ function initHorseAnimation() {
         
         const particle = document.createElement('div');
         particle.className = 'dust-particle';
-        particle.style.left = Math.random() * 50 + 'px';
+        particle.style.right = Math.random() * 50 + 'px';
         particle.style.top = Math.random() * 30 + 'px';
         particle.style.animationDelay = Math.random() * 0.5 + 's';
         particle.style.animationDuration = (0.8 + Math.random() * 0.4) + 's';
@@ -93,43 +141,41 @@ function initHorseAnimation() {
         }, 1200);
     }
 
-    // Update horse position based on scroll
+    // Update horse position based on scroll - RIGHT to LEFT
     function updateHorsePosition() {
         const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
         const currentScroll = window.scrollY;
         
         // Calculate scroll progress (0 to 1)
-        scrollProgress = Math.min(Math.max(currentScroll / scrollHeight, 0), 1);
+        const scrollProgress = Math.min(Math.max(currentScroll / scrollHeight, 0), 1);
         
         // Calculate scroll velocity
-        scrollVelocity = Math.abs(currentScroll - lastScrollY);
+        const scrollVelocity = Math.abs(currentScroll - lastScrollY);
         lastScrollY = currentScroll;
         
         // Adjust animation speed based on scroll velocity
-        // Faster scroll = faster gallop
-        const minSpeed = 0.3; // Fastest gallop
-        const maxSpeed = 1.2; // Slowest gallop
-        const speedFactor = Math.min(scrollVelocity / 50, 1); // Cap at max velocity
-        animationSpeed = maxSpeed - (speedFactor * (maxSpeed - minSpeed));
+        const minSpeed = 0.3;
+        const maxSpeed = 1.2;
+        const speedFactor = Math.min(scrollVelocity / 50, 1);
+        const animationSpeed = maxSpeed - (speedFactor * (maxSpeed - minSpeed));
         
-        // Update CSS animation duration
         document.querySelectorAll('.horse-leg, .horse-torso, .horse-tail, .horse-mane').forEach(el => {
             el.style.animationDuration = animationSpeed + 's';
         });
         
-        // Position horse across screen based on scroll
-        // Starts at -200px (off-screen left) and moves to 110vw (off-screen right)
-        const startPos = -200;
-        const endPos = window.innerWidth + 200;
-        const currentPos = startPos + (scrollProgress * (endPos - startPos));
+        // Position horse: starts at right (off-screen), moves to left (off-screen)
+        // RIGHT to LEFT movement
+        const startPos = window.innerWidth + 200; // Start off-screen right
+        const endPos = -400; // End off-screen left
+        const currentPos = startPos - (scrollProgress * (startPos - endPos));
         
-        horseContainer.style.transform = `translate(${currentPos}px, -50%)`;
+        horseContainer.style.transform = `translateY(-50%) translateX(${currentPos}px)`;
         
-        // Add bobbing effect based on scroll
+        // Add bobbing effect
         const bobOffset = Math.sin(currentScroll * 0.05) * 5;
         horse.style.transform = `translateY(${bobOffset}px)`;
         
-        // Create dust particles more frequently when moving fast
+        // Create dust when moving
         if (scrollVelocity > 5) {
             createDust();
         }
@@ -139,63 +185,17 @@ function initHorseAnimation() {
     function animate() {
         if (isActive) {
             updateHorsePosition();
-            rafId = requestAnimationFrame(animate);
+            requestAnimationFrame(animate);
         }
     }
 
-    // Start animation
     animate();
 
-    // Pause when tab is hidden
+    // Pause when tab hidden
     document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            isActive = false;
-            if (rafId) cancelAnimationFrame(rafId);
-        } else {
-            isActive = true;
-            animate();
-        }
+        isActive = !document.hidden;
+        if (isActive) animate();
     });
-
-    // Initial position
-    updateHorsePosition();
-}
-
-/**
- * Parallax Background Effects
- */
-function initParallax() {
-    const parallaxLayers = document.querySelectorAll('.hero-bg-layer');
-    
-    if (parallaxLayers.length === 0) return;
-
-    let ticking = false;
-
-    function updateParallax() {
-        const scrollY = window.scrollY;
-        const heroHeight = document.querySelector('.hero')?.offsetHeight || window.innerHeight;
-        
-        // Only animate if hero is visible
-        if (scrollY < heroHeight) {
-            parallaxLayers.forEach((layer, index) => {
-                const speed = parseFloat(layer.dataset.speed) || 0.5;
-                const yPos = scrollY * speed;
-                layer.style.transform = `translateY(${yPos}px)`;
-            });
-        }
-        
-        ticking = false;
-    }
-
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(updateParallax);
-            ticking = true;
-        }
-    }, { passive: true });
-
-    // Initial call
-    updateParallax();
 }
 
 /**
@@ -238,7 +238,6 @@ function initGallery() {
         });
     });
 
-    // Close lightbox
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
@@ -252,7 +251,6 @@ function initGallery() {
         if (e.target === lightbox) closeLightbox();
     });
 
-    // Close on escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && lightbox.classList.contains('active')) {
             closeLightbox();
@@ -261,7 +259,7 @@ function initGallery() {
 }
 
 /**
- * Smooth Scroll for Navigation Links
+ * Smooth Scroll
  */
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -282,37 +280,23 @@ function initSmoothScroll() {
 }
 
 /**
- * WhatsApp Float Button - Show after scrolling past hero
+ * WhatsApp Float Button
  */
 function initWhatsAppFloat() {
     const whatsappFloat = document.querySelector('.whatsapp-float');
     if (!whatsappFloat) return;
 
-    const hero = document.querySelector('.hero');
-    const heroHeight = hero?.offsetHeight || window.innerHeight;
-
     window.addEventListener('scroll', () => {
-        if (window.scrollY > heroHeight * 0.5) {
-            whatsappFloat.style.opacity = '1';
-            whatsappFloat.style.visibility = 'visible';
-            whatsappFloat.style.transform = 'scale(1)';
+        if (window.scrollY > window.innerHeight) {
+            whatsappFloat.classList.add('visible');
         } else {
-            whatsappFloat.style.opacity = '0';
-            whatsappFloat.style.visibility = 'hidden';
-            whatsappFloat.style.transform = 'scale(0.8)';
+            whatsappFloat.classList.remove('visible');
         }
     }, { passive: true });
-
-    // Initial state
-    whatsappFloat.style.opacity = '0';
-    whatsappFloat.style.visibility = 'hidden';
-    whatsappFloat.style.transform = 'scale(0.8)';
-    whatsappFloat.style.transition = 'all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
 }
 
 /**
- * Final Horse Animation in Footer
- * Horse gallops off screen when reaching footer
+ * Final Horse in Footer
  */
 function initFinalHorse() {
     const finalHorse = document.getElementById('finalHorse');
@@ -328,24 +312,17 @@ function initFinalHorse() {
             if (entry.isIntersecting && !hasAnimated) {
                 hasAnimated = true;
                 
-                // Animate horse galloping across footer
-                gsap?.to(finalHorse, {
-                    left: '110%',
-                    duration: 4,
-                    ease: 'power1.inOut'
-                });
-
-                // Animate horse legs
-                const legs = finalHorse.querySelectorAll('.horse-leg');
-                legs.forEach((leg, i) => {
-                    gsap?.to(leg, {
-                        rotation: 'random(-20, 30)',
-                        duration: 0.3,
-                        repeat: 13,
-                        yoyo: true,
-                        delay: i * 0.1
+                // Animate horse galloping across footer - RIGHT to LEFT
+                if (typeof gsap !== 'undefined') {
+                    gsap.to(finalHorse, {
+                        right: '110%',
+                        duration: 4,
+                        ease: 'power1.inOut'
                     });
-                });
+                } else {
+                    finalHorse.style.transition = 'right 4s ease-in-out';
+                    finalHorse.style.right = '110%';
+                }
             }
         });
     }, { threshold: 0.3 });
@@ -354,18 +331,12 @@ function initFinalHorse() {
 }
 
 /**
- * Scroll Reveal Animations using Intersection Observer
+ * Scroll Reveal Animations
  */
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('[data-aos]');
     
     if (revealElements.length === 0) return;
-
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -380,49 +351,32 @@ function initScrollReveal() {
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
     revealElements.forEach(el => {
-        // Initial state
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-        
         observer.observe(el);
     });
 }
 
 /**
- * GSAP Animations (if GSAP is loaded)
+ * GSAP Animations
  */
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Parallax effect for about images
-    gsap.utils.toArray('.about-image').forEach((img, i) => {
-        gsap.to(img, {
-            y: 100,
-            rotation: i % 2 === 0 ? 5 : -5,
-            scrollTrigger: {
-                trigger: '.about',
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: 1
-            }
-        });
-    });
-
-    // Pricing cards stagger animation
+    // Pricing cards animation
     gsap.from('.pricing-card', {
-        y: 60,
+        y: 50,
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
+        duration: 0.7,
+        stagger: 0.12,
         ease: 'power3.out',
         scrollTrigger: {
             trigger: '.pricing-grid',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
+            start: 'top 85%',
         }
     });
 
@@ -430,68 +384,37 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.from('.gallery-item', {
         scale: 0.9,
         opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'back.out(1.7)',
+        duration: 0.5,
+        stagger: 0.08,
+        ease: 'back.out(1.5)',
         scrollTrigger: {
             trigger: '.gallery-grid',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
+            start: 'top 85%',
         }
     });
 
-    // Hero title animation on load
-    gsap.from('.title-line', {
-        y: 50,
+    // Experience cards
+    gsap.from('.experience-card', {
+        y: 40,
         opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: 'power3.out',
-        delay: 0.5
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+            trigger: '.experience-grid',
+            start: 'top 85%',
+        }
     });
 }
 
 /**
- * Performance: Pause animations when not visible
- */
-const performanceObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.remove('paused');
-        } else {
-            entry.target.classList.add('paused');
-        }
-    });
-}, { threshold: 0 });
-
-// Observe animated elements
-document.querySelectorAll('.horse-container, .dust-container').forEach(el => {
-    performanceObserver.observe(el);
-});
-
-// Add CSS for paused state
-const style = document.createElement('style');
-style.textContent = `
-    .paused .horse-leg,
-    .paused .horse-torso,
-    .paused .horse-tail,
-    .paused .horse-mane,
-    .paused .dust-particle {
-        animation-play-state: paused !important;
-    }
-`;
-document.head.appendChild(style);
-
-/**
- * Handle reduced motion preference
+ * Reduced Motion Support
  */
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    // Disable complex animations
-    document.querySelectorAll('.horse-leg, .horse-torso, .horse-tail, .horse-mane').forEach(el => {
+    document.querySelectorAll('.horse-leg, .horse-torso, .horse-tail, .horse-mane, .o-horse-leg, .o-horse-torso, .o-horse-tail, .o-horse-mane').forEach(el => {
         el.style.animation = 'none';
     });
     
-    // Simple fade-in for scroll reveals
     document.querySelectorAll('[data-aos]').forEach(el => {
         el.style.opacity = '1';
         el.style.transform = 'none';

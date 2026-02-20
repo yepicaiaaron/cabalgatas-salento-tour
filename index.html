@@ -6,7 +6,7 @@
     <title>Cabalgatas Salento Tour | Aventura Ecuatoriana</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -20,8 +20,7 @@
             <span class="nav-title">Cabalgatas Salento</span>
         </div>
         <ul class="nav-links">
-            <li><a href="#hero" class="nav-link">Inicio</a></li>
-            <li><a href="#about" class="nav-link">Experiencia</a></li>
+            <li><a href="#experience" class="nav-link">Experiencia</a></li>
             <li><a href="#tours" class="nav-link">Tours</a></li>
             <li><a href="#gallery" class="nav-link">Galería</a></li>
             <li><a href="#contact" class="nav-link">Contacto</a></li>
@@ -29,335 +28,328 @@
         <button class="nav-toggle" id="navToggle">☰</button>
     </nav>
 
-    <!-- Galloping Horse Container -->
+    <!-- OPENING SEQUENCE: Hero with Large Galloping Horse -->
+    <section class="opening-sequence" id="opening">
+        <div class="opening-bg">
+            <div class="opening-bg-layer layer-1"></div>
+            <div class="opening-bg-layer layer-2"></div>
+            <div class="opening-bg-layer layer-3"></div>
+        </div>
+        
+        <!-- Large Galloping Horse Silhouette - RIGHT to LEFT -->
+        <div class="opening-horse-container" id="openingHorse">
+            <svg class="opening-horse" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                <g class="opening-horse-group">
+                    <!-- Back Left Leg -->
+                    <path class="o-horse-leg o-horse-leg-bl" d="M110 190 L100 240 L95 270 L103 280 M100 240 L115 250"/>
+                    <!-- Back Right Leg -->
+                    <path class="o-horse-leg o-horse-br" d="M130 190 L140 235 L150 265 L144 276 M140 235 L125 245"/>
+                    <!-- Front Left Leg -->
+                    <path class="o-horse-leg o-horse-fl" d="M250 180 L255 230 L265 260 L275 270 M255 230 L240 238"/>
+                    <!-- Front Right Leg -->
+                    <path class="o-horse-leg o-horse-fr" d="M270 175 L280 225 L295 255 L305 265 M280 225 L260 232"/>
+                    <!-- Tail -->
+                    <path class="o-horse-tail" d="M90 170 L60 180 L40 210 L35 240 L45 270 L55 285"/>
+                    <!-- Main Body -->
+                    <path class="o-horse-torso" d="M100 160 Q120 120 160 110 L220 100 Q260 95 290 110 L310 120 L320 150 L330 170 L320 190 L300 200 L260 195 L220 190 L180 185 L140 180 L110 175 Z"/>
+                    <!-- Neck and Head -->
+                    <path class="o-horse-neck" d="M280 110 Q290 80 300 60 L310 40 L330 35 L340 50 L335 65 L320 80 L310 100"/>
+                    <!-- Mane -->
+                    <path class="o-horse-mane" d="M300 60 Q305 45 310 35 Q318 45 320 58 Q315 70 310 82"/>
+                    <!-- Ears -->
+                    <path class="o-horse-ear" d="M324 40 L328 25 L332 38 M336 36 L344 24 L346 40"/>
+                </g>
+            </svg>
+            <div class="opening-dust" id="openingDust"></div>
+        </div>
+        
+        <!-- Branding Overlay -->
+        <div class="opening-branding" id="openingBranding">
+            <div class="opening-badge">✦ Est. 2015 ✦</div>
+            <h1 class="opening-title">
+                <span class="opening-title-line">Cabalgatas</span>
+                <span class="opening-title-line highlight">Salento</span>
+                <span class="opening-title-line">Tour</span>
+            </h1>
+            <p class="opening-tagline">Donde la aventura encuentra el alma</p>
+        </div>
+        
+        <!-- Scroll to Enter -->
+        <div class="opening-scroll-hint" id="scrollHint">
+            <div class="scroll-line"></div>
+            <span>Desplaza para comenzar</span>
+        </div>
+    </section>
+
+    <!-- Galloping Horse Across Website - RIGHT to LEFT -->
     <div class="horse-container" id="horseContainer">
         <svg class="horse" id="horse" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
-            <!-- Horse Silhouette with articulated parts for animation -->
             <g class="horse-body-group">
-                <!-- Back Left Leg -->
                 <path class="horse-leg horse-leg-bl" d="M55 95 L50 120 L48 135 L52 140 M50 120 L58 125"/>
-                <!-- Back Right Leg -->
                 <path class="horse-leg horse-leg-br" d="M65 95 L70 118 L75 132 L72 138 M70 118 L62 122"/>
-                <!-- Front Left Leg -->
                 <path class="horse-leg horse-leg-fl" d="M125 90 L128 115 L135 130 L140 135 M128 115 L120 118"/>
-                <!-- Front Right Leg -->
                 <path class="horse-leg horse-leg-fr" d="M135 88 L142 112 L148 128 L155 132 M142 112 L132 115"/>
-                <!-- Tail -->
                 <path class="horse-tail" d="M45 85 Q30 90 25 105 Q20 115 22 125 Q25 135 30 140"/>
-                <!-- Main Body -->
                 <path class="horse-torso" d="M50 80 Q60 60 80 55 L110 50 Q130 48 145 55 L155 60 L160 75 L165 85 L160 95 L150 100 L130 98 L110 95 L90 92 L70 90 L55 88 Z"/>
-                <!-- Neck and Head -->
                 <path class="horse-neck" d="M140 55 Q145 40 150 30 L155 20 L165 18 L170 25 L168 32 L160 38 L155 50"/>
-                <!-- Mane -->
                 <path class="horse-mane" d="M150 30 Q152 22 155 18 Q158 22 160 28 Q158 35 155 40"/>
-                <!-- Ears -->
                 <path class="horse-ear" d="M162 20 L164 12 L166 19 M168 18 L172 12 L173 20"/>
             </g>
         </svg>
-        <!-- Dust particles -->
         <div class="dust-container" id="dustContainer"></div>
     </div>
 
-    <!-- Section 1: Hero -->
-    <section class="section hero" id="hero">
-        <div class="hero-bg">
-            <div class="hero-bg-layer" data-speed="0.2"></div>
-            <div class="hero-bg-layer" data-speed="0.5"></div>
-            <div class="hero-bg-layer" data-speed="0.8"></div>
-        </div>
-        <div class="hero-content">
-            <div class="hero-badge">✦ Est. 2015 ✦</div>
-            <h1 class="hero-title">
-                <span class="title-line">Cabalgatas</span>
-                <span class="title-line highlight">Salento Tour</span>
-            </h1>
-            <p class="hero-tagline">Donde la aventura encuentra el alma</p>
-            <p class="hero-subtitle">Descubre la magia del Eje Cafetero a caballo</p>
-            <div class="hero-cta">
-                <a href="#tours" class="btn btn-primary">Explorar Tours</a>
-                <a href="https://wa.me/573123456789?text=¡Hola!%20Me%20interesa%20reservar%20una%20cabalgata%20en%20Salento" class="btn btn-secondary" target="_blank">
-                    <span>💬</span> Reservar por WhatsApp
-                </a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
-            </div>
-            <span class="scroll-text">Desplaza para explorar</span>
-        </div>
-    </section>
-
-    <!-- Section 2: About/Experience -->
-    <section class="section about" id="about">
-        <div class="about-bg">
-            <div class="about-image-wrapper">
-                <div class="about-image about-image-1"></div>
-                <div class="about-image about-image-2"></div>
-                <div class="about-image about-image-3"></div>
-            </div>
-        </div>
-        <div class="about-content">
-            <div class="about-header">
-                <span class="section-badge">La Experiencia</span>
-                <h2 class="section-title">Conecta con la naturaleza</h2>
-            </div>
-            <div class="about-grid">
-                <div class="about-card" data-aos="fade-up">
-                    <div class="about-icon">🌄</div>
-                    <h3>Valle de Cocora</h3>
-                    <p>Surca los senderos entre las palmas de cera más altas del mundo. Un paisaje único declarado Patrimonio de la Humanidad.</p>
-                </div>
-                <div class="about-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="about-icon">☕</div>
-                    <h3>Cultura Cafetera</h3>
-                    <p>Visita fincas tradicionales, aprende el proceso del café y degusta la mejor taza del mundo en su lugar de origen.</p>
-                </div>
-                <div class="about-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="about-icon">🐴</div>
-                    <h3>Caballos Criollos</h3>
-                    <p>Nuestros caballos son criollos colombianos, mansos y seguros, perfectos para jinetes de todos los niveles.</p>
-                </div>
-                <div class="about-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="about-icon">🏔️</div>
-                    <h3>Paisajes Andinos</h3>
-                    <p>Recorre montañas, valles y bosques de niebla. Cada ruta es una aventura visual inolvidable.</p>
-                </div>
-            </div>
-        </div>
-        <div class="floating-elements">
-            <div class="floating-palm"></div>
-            <div class="floating-cloud"></div>
-        </div>
-    </section>
-
-    <!-- Section 3: Tours & Pricing -->
-    <section class="section tours" id="tours">
-        <div class="tours-bg">
-            <div class="tours-pattern"></div>
-        </div>
-        <div class="tours-content">
-            <div class="tours-header">
-                <span class="section-badge">Nuestros Tours</span>
-                <h2 class="section-title">Elige tu aventura</h2>
-                <p class="tours-subtitle">Tres experiencias únicas diseñadas para todos los niveles</p>
-            </div>
-            
-            <div class="pricing-grid">
-                <!-- Tour 1: Express -->
-                <div class="pricing-card" data-aos="fade-up">
-                    <div class="pricing-badge">Popular</div>
-                    <div class="pricing-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600');"></div>
-                    <div class="pricing-content">
-                        <h3 class="pricing-title">Valle de Cocora Express</h3>
-                        <div class="pricing-duration">⏱️ 2 horas</div>
-                        <div class="pricing-price">
-                            <span class="price-currency">$</span>
-                            <span class="price-amount">180,000</span>
-                            <span class="price-unit">COP</span>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>✓ Recorrido por el valle principal</li>
-                            <li>✓ Vista de las palmas de cera</li>
-                            <li>✓ Guía bilingüe (ES/EN)</li>
-                            <li>✓ Casco y equipo de seguridad</li>
-                            <li>✓ Seguro de viaje</li>
-                        </ul>
-                        <a href="https://wa.me/573123456789?text=¡Hola!%20Me%20interesa%20reservar%20el%20tour%20Valle%20de%20Cocora%20Express" class="btn btn-whatsapp" target="_blank">
-                            Reservar por WhatsApp
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tour 2: Café y Cabalgata -->
-                <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100">
-                    <div class="pricing-badge featured">Recomendado</div>
-                    <div class="pricing-image" style="background-image: url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600');"></div>
-                    <div class="pricing-content">
-                        <h3 class="pricing-title">Café y Cabalgata</h3>
-                        <div class="pricing-duration">⏱️ 4 horas</div>
-                        <div class="pricing-price">
-                            <span class="price-currency">$</span>
-                            <span class="price-amount">320,000</span>
-                            <span class="price-unit">COP</span>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>✓ Todo el tour Express</li>
-                            <li>✓ Visita a finca cafetera</li>
-                            <li>✓ Tour del proceso del café</li>
-                            <li>✓ Degustación de café premium</li>
-                            <li>✓ Almuerzo típico incluido</li>
-                            <li>✓ Fotografías del recorrido</li>
-                        </ul>
-                        <a href="https://wa.me/573123456789?text=¡Hola!%20Me%20interesa%20reservar%20el%20tour%20Café%20y%20Cabalgata" class="btn btn-whatsapp" target="_blank">
-                            Reservar por WhatsApp
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tour 3: Aventura Completa -->
-                <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="pricing-badge premium">Premium</div>
-                    <div class="pricing-image" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600');"></div>
-                    <div class="pricing-content">
-                        <h3 class="pricing-title">Aventura Completa</h3>
-                        <div class="pricing-duration">⏱️ Día completo</div>
-                        <div class="pricing-price">
-                            <span class="price-currency">$</span>
-                            <span class="price-amount">550,000</span>
-                            <span class="price-unit">COP</span>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>✓ Todo el tour Café y Cabalgata</li>
-                            <li>✓ Ruta extendida a bosque de niebla</li>
-                            <li>✓ Cascadas y piscinas naturales</li>
-                            <li>✓ Observación de aves</li>
-                            <li>✓ Picnic gourmet en la naturaleza</li>
-                            <li>✓ Transporte desde su hotel</li>
-                            <li>✓ Souvenir de regalo</li>
-                        </ul>
-                        <a href="https://wa.me/573123456789?text=¡Hola!%20Me%20interesa%20reservar%20el%20tour%20Aventura%20Completa" class="btn btn-whatsapp" target="_blank">
-                            Reservar por WhatsApp
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tours-note">
-                <p>💡 <strong>¿Personalizamos tu experiencia?</strong> Contáctanos para tours privados, grupos corporativos o eventos especiales.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: WhatsApp CTA -->
-    <section class="section whatsapp-cta" id="whatsapp">
-        <div class="whatsapp-bg">
-            <div class="whatsapp-pattern"></div>
-        </div>
-        <div class="whatsapp-content">
-            <div class="whatsapp-icon-large">💬</div>
-            <h2 class="whatsapp-title">¿Listo para tu aventura?</h2>
-            <p class="whatsapp-text">Reserva directamente por WhatsApp. Respuesta inmediata, sin complicaciones.</p>
-            <a href="https://wa.me/573123456789?text=¡Hola!%20Me%20interesa%20reservar%20una%20cabalgata%20en%20Salento" class="btn btn-whatsapp-large" target="_blank">
-                <span class="whatsapp-btn-icon"></span>
-                <div class="whatsapp-btn-content">
-                    <span class="whatsapp-btn-text">Reservar por WhatsApp</span>
-                    <span class="whatsapp-btn-number">+57 312 345 6789</span>
-                </div>
-            </a>
-            <p class="whatsapp-hours">🕐 Horario de atención: 7:00 AM - 7:00 PM</p>
-        </div>
-    </section>
-
-    <!-- Section 5: Gallery -->
-    <section class="section gallery" id="gallery">
-        <div class="gallery-header">
-            <span class="section-badge">Galería</span>
-            <h2 class="section-title">Momentos inolvidables</h2>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800" alt="Cabalgata en el valle" loading="lazy">
-                <div class="gallery-overlay">
-                    <span class="gallery-caption">Valle de Cocora</span>
-                </div>
-            </div>
-            <div class="gallery-item large" data-aos="fade-up" data-aos-delay="50">
-                <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=800" alt="Palmas de cera" loading="lazy">
-                <div class="gallery-overlay">
-                    <span class="gallery-caption">Palmas de Cera</span>
-                </div>
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800" alt="Café colombiano" loading="lazy">
-                <div class="gallery-overlay">
-                    <span class="gallery-caption">Cultura Cafetera</span>
-                </div>
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
-                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800" alt="Montañas andinas" loading="lazy">
-                <div class="gallery-overlay">
-                    <span class="gallery-caption">Paisajes Andinos</span>
-                </div>
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1504198458649-3128b932f49e?w=800" alt="Aventura a caballo" loading="lazy">
-                <div class="gallery-overlay">
-                    <span class="gallery-caption">Aventura</span>
-                </div>
-            </div>
-            <div class="gallery-item large" data-aos="fade-up" data-aos-delay="250">
-                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800" alt="Naturaleza" loading="lazy">
-                <div class="gallery-overlay">
-                    <span class="gallery-caption">Conexión Natural</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 6: Contact/Footer -->
-    <section class="section footer" id="contact">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <span class="footer-logo">🐴</span>
-                <h3 class="footer-title">Cabalgatas Salento Tour</h3>
-                <p class="footer-tagline">Donde la aventura encuentra el alma</p>
-            </div>
-            
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>📍 Ubicación</h4>
-                    <p>Calle Real # 5-47</p>
-                    <p>Salento, Quindío</p>
-                    <p>Colombia</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>📞 Contacto</h4>
-                    <p><a href="https://wa.me/573123456789" target="_blank">WhatsApp: +57 312 345 6789</a></p>
-                    <p><a href="mailto:info@cabalgatassalento.com">info@cabalgatassalento.com</a></p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>🕐 Horario</h4>
-                    <p>Lunes - Domingo</p>
-                    <p>7:00 AM - 7:00 PM</p>
-                    <p class="footer-note">* Previa reserva</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>🔗 Síguenos</h4>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
-                        <a href="#" class="social-link" aria-label="Facebook">📘</a>
-                        <a href="#" class="social-link" aria-label="TikTok">🎵</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>© 2025 Cabalgatas Salento Tour. Todos los derechos reservados.</p>
-                <p class="footer-crafted">Hecho con ❤️ en el Eje Cafetero</p>
-            </div>
-        </div>
+    <!-- MAIN EXPERIENCE - Revealed after opening -->
+    <main class="main-content" id="mainContent">
         
-        <!-- Final horse galloping off screen -->
-        <div class="final-horse" id="finalHorse">
-            <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
-                <g class="horse-body-group">
-                    <path class="horse-leg horse-leg-bl" d="M55 95 L50 120 L48 135 L52 140 M50 120 L58 125"/>
-                    <path class="horse-leg horse-leg-br" d="M65 95 L70 118 L75 132 L72 138 M70 118 L62 122"/>
-                    <path class="horse-leg horse-leg-fl" d="M125 90 L128 115 L135 130 L140 135 M128 115 L120 118"/>
-                    <path class="horse-leg horse-leg-fr" d="M135 88 L142 112 L148 128 L155 132 M142 112 L132 115"/>
-                    <path class="horse-tail" d="M45 85 Q30 90 25 105 Q20 115 22 125 Q25 135 30 140"/>
-                    <path class="horse-torso" d="M50 80 Q60 60 80 55 L110 50 Q130 48 145 55 L155 60 L160 75 L165 85 L160 95 L150 100 L130 98 L110 95 L90 92 L70 90 L55 88 Z"/>
-                    <path class="horse-neck" d="M140 55 Q145 40 150 30 L155 20 L165 18 L170 25 L168 32 L160 38 L155 50"/>
-                    <path class="horse-mane" d="M150 30 Q152 22 155 18 Q158 22 160 28 Q158 35 155 40"/>
-                    <path class="horse-ear" d="M162 20 L164 12 L166 19 M168 18 L172 12 L173 20"/>
-                </g>
-            </svg>
-        </div>
-    </section>
+        <!-- Section 1: About/Experience -->
+        <section class="section experience" id="experience">
+            <div class="experience-bg">
+                <div class="experience-image experience-image-1" style="background-image: url('https://images.unsplash.com/photo-1518182170546-0766ce6fec93?w=800');"></div>
+                <div class="experience-image experience-image-2" style="background-image: url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800');"></div>
+            </div>
+            <div class="experience-content">
+                <div class="experience-header">
+                    <span class="section-badge">La Experiencia</span>
+                    <h2 class="section-title">Vive el Valle de Cocora</h2>
+                    <p class="experience-intro">Cabalgata entre las palmas de cera más altas del mundo, descubre la cultura cafetera y conecta con la naturaleza en su estado más puro.</p>
+                </div>
+                <div class="experience-grid">
+                    <div class="experience-card" data-aos="fade-up">
+                        <div class="experience-icon">🌴</div>
+                        <h3>Palmas de Cera</h3>
+                        <p>Recorre el icónico Valle de Cocora, hogar de la palma de cera nacional, árbol más alto del mundo y símbolo de Colombia.</p>
+                    </div>
+                    <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="experience-icon">☕</div>
+                        <h3>Cultura Cafetera</h3>
+                        <p>Visita fincas tradicionales, aprende el proceso del café desde la semilla hasta la taza y degusta el mejor café del mundo.</p>
+                    </div>
+                    <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="experience-icon">🐴</div>
+                        <h3>Caballos Criollos</h3>
+                        <p>Nuestros caballos criollos colombianos son mansos, seguros y perfectos para jinetes de todos los niveles de experiencia.</p>
+                    </div>
+                    <div class="experience-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="experience-icon">🏔️</div>
+                        <h3>Paisajes de Ensueño</h3>
+                        <p>Montañas, valles verdes, bosques de niebla y cascadas. Cada ruta es una postal viviente del Eje Cafetero.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Tours & Pricing -->
+        <section class="section tours" id="tours">
+            <div class="tours-bg"></div>
+            <div class="tours-content">
+                <div class="tours-header">
+                    <span class="section-badge">Nuestros Tours</span>
+                    <h2 class="section-title">Elige tu aventura</h2>
+                    <p class="tours-subtitle">Experiencias diseñadas para todos los niveles</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <!-- Tour 1: Express -->
+                    <div class="pricing-card" data-aos="fade-up">
+                        <div class="pricing-badge">Popular</div>
+                        <div class="pricing-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600');"></div>
+                        <div class="pricing-content">
+                            <h3 class="pricing-title">Valle de Cocora Express</h3>
+                            <div class="pricing-duration">⏱️ 2 horas</div>
+                            <div class="pricing-price">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount">180,000</span>
+                                <span class="price-unit">COP</span>
+                            </div>
+                            <ul class="pricing-features">
+                                <li>✓ Recorrido por el valle principal</li>
+                                <li>✓ Vista de las palmas de cera</li>
+                                <li>✓ Guía bilingüe (ES/EN)</li>
+                                <li>✓ Casco y equipo de seguridad</li>
+                                <li>✓ Seguro de viaje</li>
+                            </ul>
+                            <a href="https://wa.me/573123456789?text=¡Hola!%20Me%20interesa%20reservar%20el%20tour%20Valle%20de%20Cocora%20Express" class="btn btn-whatsapp" target="_blank">
+                                Reservar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tour 2: Café y Cabalgata -->
+                    <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100">
+                        <div class="pricing-badge featured">Recomendado</div>
+                        <div class="pricing-image" style="background-image: url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600');"></div>
+                        <div class="pricing-content">
+                            <h3 class="pricing-title">Café y Cabalgata</h3>
+                            <div class="pricing-duration">⏱️ 4 horas</div>
+                            <div class="pricing-price">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount">320,000</span>
+                                <span class="price-unit">COP</span>
+                            </div>
+                            <ul class="pricing-features">
+                                <li>✓ Todo el tour Express</li>
+                                <li>✓ Visita a finca cafetera</li>
+                                <li>✓ Tour del proceso del café</li>
+                                <li>✓ Degustación de café premium</li>
+                                <li>✓ Almuerzo típico incluido</li>
+                                <li>✓ Fotografías del recorrido</li>
+                            </ul>
+                            <a href="https://wa.me/573123456789?text=¡Hola!%20Me%20interesa%20reservar%20el%20tour%20Café%20y%20Cabalgata" class="btn btn-whatsapp" target="_blank">
+                                Reservar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tour 3: Aventura Completa -->
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="pricing-badge premium">Premium</div>
+                        <div class="pricing-image" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600');"></div>
+                        <div class="pricing-content">
+                            <h3 class="pricing-title">Aventura Completa</h3>
+                            <div class="pricing-duration">⏱️ Día completo</div>
+                            <div class="pricing-price">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount">550,000</span>
+                                <span class="price-unit">COP</span>
+                            </div>
+                            <ul class="pricing-features">
+                                <li>✓ Todo el tour Café y Cabalgata</li>
+                                <li>✓ Ruta extendida a bosque de niebla</li>
+                                <li>✓ Cascadas y piscinas naturales</li>
+                                <li>✓ Observación de aves</li>
+                                <li>✓ Picnic gourmet en la naturaleza</li>
+                                <li>✓ Transporte desde su hotel</li>
+                                <li>✓ Souvenir de regalo</li>
+                            </ul>
+                            <a href="https://wa.me/573123456789?text=¡Hola!%20Me%20interesa%20reservar%20el%20tour%20Aventura%20Completa" class="btn btn-whatsapp" target="_blank">
+                                Reservar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tours-note">
+                    <p>💡 <strong>¿Personalizamos tu experiencia?</strong> Contáctanos para tours privados, grupos corporativos o eventos especiales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: WhatsApp CTA -->
+        <section class="section whatsapp-cta" id="whatsapp">
+            <div class="whatsapp-content">
+                <div class="whatsapp-icon-large">💬</div>
+                <h2 class="whatsapp-title">¿Listo para tu aventura?</h2>
+                <p class="whatsapp-text">Reserva directamente por WhatsApp. Respuesta inmediata, sin complicaciones.</p>
+                <a href="https://wa.me/573123456789?text=¡Hola!%20Me%20interesa%20reservar%20una%20cabalgata%20en%20Salento" class="btn btn-whatsapp-large" target="_blank">
+                    <span class="whatsapp-btn-icon"></span>
+                    <div class="whatsapp-btn-content">
+                        <span class="whatsapp-btn-text">Reservar por WhatsApp</span>
+                        <span class="whatsapp-btn-number">+57 312 345 6789</span>
+                    </div>
+                </a>
+                <p class="whatsapp-hours">🕐 Horario: 7:00 AM - 7:00 PM | Todos los días</p>
+            </div>
+        </section>
+
+        <!-- Section 4: Gallery -->
+        <section class="section gallery" id="gallery">
+            <div class="gallery-header">
+                <span class="section-badge">Galería</span>
+                <h2 class="section-title">Momentos inolvidables</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item large" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800" alt="Cabalgata en el valle" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-caption">Valle de Cocora</span></div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="50">
+                    <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=800" alt="Palmas de cera" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-caption">Palmas de Cera</span></div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800" alt="Café colombiano" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-caption">Cultura Cafetera</span></div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800" alt="Montañas andinas" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-caption">Paisajes Andinos</span></div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1504198458649-3128b932f49e?w=800" alt="Aventura a caballo" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-caption">Aventura</span></div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="250">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800" alt="Naturaleza" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-caption">Conexión Natural</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Contact/Footer -->
+        <section class="section footer" id="contact">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">🐴</span>
+                    <h3 class="footer-title">Cabalgatas Salento Tour</h3>
+                    <p class="footer-tagline">Donde la aventura encuentra el alma</p>
+                </div>
+                
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h4>📍 Ubicación</h4>
+                        <p>Calle Real # 5-47</p>
+                        <p>Salento, Quindío</p>
+                        <p>Colombia</p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>📞 Contacto</h4>
+                        <p><a href="https://wa.me/573123456789" target="_blank">WhatsApp: +57 312 345 6789</a></p>
+                        <p><a href="mailto:info@cabalgatassalento.com">info@cabalgatassalento.com</a></p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>🕐 Horario</h4>
+                        <p>Lunes - Domingo</p>
+                        <p>7:00 AM - 7:00 PM</p>
+                        <p class="footer-note">* Previa reserva</p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>🔗 Síguenos</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                            <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                            <a href="#" class="social-link" aria-label="TikTok">🎵</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>© 2025 Cabalgatas Salento Tour. Todos los derechos reservados.</p>
+                    <p class="footer-crafted">Hecho con ❤️ en el Eje Cafetero</p>
+                </div>
+            </div>
+            
+            <!-- Final horse galloping off screen -->
+            <div class="final-horse" id="finalHorse">
+                <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+                    <g class="horse-body-group">
+                        <path class="horse-leg horse-leg-bl" d="M55 95 L50 120 L48 135 L52 140 M50 120 L58 125"/>
+                        <path class="horse-leg horse-leg-br" d="M65 95 L70 118 L75 132 L72 138 M70 118 L62 122"/>
+                        <path class="horse-leg horse-leg-fl" d="M125 90 L128 115 L135 130 L140 135 M128 115 L120 118"/>
+                        <path class="horse-leg horse-leg-fr" d="M135 88 L142 112 L148 128 L155 132 M142 112 L132 115"/>
+                        <path class="horse-tail" d="M45 85 Q30 90 25 105 Q20 115 22 125 Q25 135 30 140"/>
+                        <path class="horse-torso" d="M50 80 Q60 60 80 55 L110 50 Q130 48 145 55 L155 60 L160 75 L165 85 L160 95 L150 100 L130 98 L110 95 L90 92 L70 90 L55 88 Z"/>
+                        <path class="horse-neck" d="M140 55 Q145 40 150 30 L155 20 L165 18 L170 25 L168 32 L160 38 L155 50"/>
+                        <path class="horse-mane" d="M150 30 Q152 22 155 18 Q158 22 160 28 Q158 35 155 40"/>
+                        <path class="horse-ear" d="M162 20 L164 12 L166 19 M168 18 L172 12 L173 20"/>
+                    </g>
+                </svg>
+            </div>
+        </section>
+    </main>
 
     <!-- Fixed WhatsApp Button -->
     <a href="https://wa.me/573123456789?text=¡Hola!%20Me%20interesa%20reservar%20una%20cabalgata%20en%20Salento" class="whatsapp-float" target="_blank" aria-label="Reservar por WhatsApp">

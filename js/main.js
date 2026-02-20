@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * OPENING SEQUENCE
- * Large horse gallops from right to left, reveals branding
+ * Elegant horse gallops from right to left, reveals branding
  */
 function initOpeningSequence() {
     const opening = document.getElementById('opening');
@@ -28,13 +28,13 @@ function initOpeningSequence() {
     if (!opening || !openingHorse) return;
 
     let hasRevealed = false;
-    let horsePosition = -500; // Start off-screen right
-    const targetPosition = window.innerWidth + 500; // End off-screen left
+    let horsePosition = 0; // Start position
+    const targetPosition = window.innerWidth + 600; // End off-screen left
     
     // Initial animation - horse enters and gallops
     function animateOpeningHorse() {
         // Move horse from right to left
-        horsePosition += 8; // Speed of gallop
+        horsePosition += 6; // Elegant gallop speed
         
         if (horsePosition < targetPosition) {
             openingHorse.style.transform = `translateY(-50%) translateX(-${horsePosition}px)`;
@@ -165,8 +165,8 @@ function initHorseAnimation() {
         
         // Position horse: starts at right (off-screen), moves to left (off-screen)
         // RIGHT to LEFT movement
-        const startPos = window.innerWidth + 200; // Start off-screen right
-        const endPos = -400; // End off-screen left
+        const startPos = window.innerWidth + 250; // Start off-screen right
+        const endPos = -450; // End off-screen left
         const currentPos = startPos - (scrollProgress * (startPos - endPos));
         
         horseContainer.style.transform = `translateY(-50%) translateX(${currentPos}px)`;

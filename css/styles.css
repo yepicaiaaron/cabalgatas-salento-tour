@@ -108,16 +108,16 @@ body { font-family: var(--font-body); background-color: var(--color-primary); co
 .opening-horse-container {
     position: absolute;
     top: 50%;
-    right: -600px;
+    right: -700px;
     transform: translateY(-50%);
     z-index: 20;
     transition: transform 0.1s linear;
 }
 
 .opening-horse {
-    width: 550px;
+    width: 600px;
     height: auto;
-    filter: drop-shadow(0 15px 40px rgba(0,0,0,0.6));
+    filter: drop-shadow(0 20px 50px rgba(0,0,0,0.7));
 }
 
 /* Opening horse animations */

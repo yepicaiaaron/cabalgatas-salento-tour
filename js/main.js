@@ -29,12 +29,12 @@ function initOpeningSequence() {
 
     let hasRevealed = false;
     let horsePosition = 0; // Start position
-    const targetPosition = window.innerWidth + 600; // End off-screen left
+    const targetPosition = window.innerWidth + 700; // End off-screen left
     
     // Initial animation - horse enters and gallops
     function animateOpeningHorse() {
         // Move horse from right to left
-        horsePosition += 6; // Elegant gallop speed
+        horsePosition += 5; // Elegant gallop speed
         
         if (horsePosition < targetPosition) {
             openingHorse.style.transform = `translateY(-50%) translateX(-${horsePosition}px)`;
@@ -165,8 +165,8 @@ function initHorseAnimation() {
         
         // Position horse: starts at right (off-screen), moves to left (off-screen)
         // RIGHT to LEFT movement
-        const startPos = window.innerWidth + 250; // Start off-screen right
-        const endPos = -450; // End off-screen left
+        const startPos = window.innerWidth + 300; // Start off-screen right
+        const endPos = -500; // End off-screen left
         const currentPos = startPos - (scrollProgress * (startPos - endPos));
         
         horseContainer.style.transform = `translateY(-50%) translateX(${currentPos}px)`;
